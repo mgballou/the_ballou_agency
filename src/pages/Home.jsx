@@ -20,7 +20,7 @@ function Home(){
             <div className="w-50">
 
             <h1>Home Page</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto ipsa eveniet nesciunt quasi exercitationem molestias corporis rerum alias, doloribus optio perspiciatis, animi doloremque ipsum voluptates aliquam assumenda fugit rem suscipit.</p>
+            <p>Life is full of unforeseen challenges, and financial obstacles can often be the hardest to overcome. Having a trusted advisor who can help you anticipate, plan for, and weather these hurdles is invaluable. Trust The Ballou Agency to care for your financial wellness.</p>
             </div>
         </motion.div>
     )
