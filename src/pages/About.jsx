@@ -29,36 +29,27 @@ function About() {
                         I invite you to reach out to me today, so we can meet one-on-one and work hand-in-hand to build and secure financial success for you, your family, your business, and your future. Together, we can navigate the path to financial stability and prosperity.
                     </p>
 
-                    <h3 className='card-title my-4'>Our Values</h3>
-                    <div className='d-flex flex-column gap-1 my-4'>
-
-                        <div className='d-flex flex-row justify-content-evenly gap-3'>
-                            <p className='py-4 px-2 border-3 border-dark border-bottom border-top rounded w-50 text-center'>Integrity</p>
-                            <p className='py-4 px-2 border-3 border-dark border-bottom border-top rounded w-50 text-center'>Financial Education</p>
-                        </div>
-
-                        <div className='d-flex flex-row justify-content-evenly gap-3'>
-                            <p className='py-4 px-2 border-3 border-dark border-bottom border-top rounded w-50 text-center'>Community</p>
-                            <p className='py-4 px-2 border-3 border-dark border-bottom border-top rounded w-50 text-center'>Security</p>
-                        </div>
-
-
-                        <div className='d-flex flex-row justify-content-evenly gap-3'>
-                            <p className='py-4 px-2 border-3 border-dark border-bottom border-top rounded w-50 text-center'>Empowerment</p>
-                            <p className='py-4 px-2 border-3 border-dark border-bottom border-top rounded w-50 text-center'>Something</p>
-                        </div>
-
-
-
-                    </div>
-
-
-
 
                 </div>
 
-
             </div>
+
+            <div className='card border-dark border-5 my-4'>
+                    <div className='card-body'>
+                        <h3 className='card-title my-4'>Our Values</h3>
+
+
+                        <div className="d-flex flex-row flex-wrap gap-3">
+                            <div className='card card-body bg-info bg-opacity-25 border-dark border-2 align-items-center justify-content-center d-flex w-25'>Integrity</div>
+                            <div className='card card-body text-white bg-dark align-items-center justify-content-center d-flex rounded w-25'>Integrity</div>
+                            <div className='card card-body border-info align-items-center justify-content-center d-flex rounded w-25'>Integrity</div>
+                            <div className='card card-body align-items-center justify-content-center d-flex rounded w-25'>Integrity</div>
+                            <div className='card card-body text-white bg-success align-items-center justify-content-center d-flex rounded w-25'>Integrity</div>
+                            <div className='card card-body border-dark align-items-center justify-content-center d-flex rounded w-25'>Integrity</div>
+                        </div>
+
+                    </div>
+                </div>
 
 
 
