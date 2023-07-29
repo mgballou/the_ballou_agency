@@ -38,7 +38,7 @@ function Services(props) {
                             </ul>
                             <div className="col-12 col-lg-6" 
                             >
-                                <img src='/src/assets/shaking-hands.jpg' alt="shaking hands" className="border border-info border-3 rounded-3 border-opacity-25 img-fluid"/>
+                                <img src='src/assets/shaking-hands.jpg' alt="shaking hands" className="border border-info border-3 rounded-3 border-opacity-25 img-fluid"/>
                             </div>
 
 
