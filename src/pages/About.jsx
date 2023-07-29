@@ -18,7 +18,7 @@ function About() {
                     </div>
                     <div>
                         <div className='d-flex justify-content-center my-2'>
-                            <img src="src/assets/headshot.jpg" alt="Marvin Ballou" className="border border-info border-3 rounded-3 border-opacity-25" style={{maxHeight: '460px', maxWidth: '100%'}} />
+                            <img src="assets/headshot.jpg" alt="Marvin Ballou" className="border border-info border-3 rounded-3 border-opacity-25" style={{maxHeight: '460px', maxWidth: '100%'}} />
 
                         </div>
                         <div className='p-4'>
