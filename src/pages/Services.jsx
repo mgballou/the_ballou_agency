@@ -16,25 +16,35 @@ function Services(props) {
                         <h3 className='card-title'>Services</h3>
 
                     </div>
-                    <div className="p-4">
+                    <div className="px-4 py-2">
                         <p>Through long-term partnerships with some of the top organizations in the industry,
                             we can provide  a wide variety of financial services.</p>
 
-                        <ul>
-                            <li>Term Life Insurance</li>
-                            <li>Whole Life Insurance</li>
-                            <li>Universal Life Insurance</li>
-                            <li>Indexed Universal Life Insurance</li>
-                            <li>Guaranteed Issue Life Insurance Product</li>
-                            <li>Fixed Annuities</li>
-                            <li>Fixed Indexed Annuities</li>
-                            <li>Asset Rollovers</li>
-                            <li>Alternative College Funding</li>
-                            <li>Retirement Planning</li>
-                            <li>Health Insurance Coverage</li>
-                            <li>Investment Planning</li>
+                        <div className="row justify-content-center px-4">
+                            <ul className="col-12 col-lg-6">
+                                <li>Term Life Insurance</li>
+                                <li>Whole Life Insurance</li>
+                                <li>Universal Life Insurance</li>
+                                <li>Indexed Universal Life Insurance</li>
+                                <li>Guaranteed Issue Life Insurance Products</li>
+                                <li>Fixed Annuities</li>
+                                <li>Fixed Indexed Annuities</li>
+                                <li>Asset Rollovers</li>
+                                <li>Alternative College Funding</li>
+                                <li>Retirement Planning</li>
+                                <li>Health Insurance Coverage</li>
+                                <li>Investment Planning</li>
 
-                        </ul>
+                            </ul>
+                            <div className="col-12 col-lg-6" 
+                            >
+                                <img src='src/assets/shaking-hands.jpg' alt="shaking hands" className="border border-info border-3 rounded-3 border-opacity-25 img-fluid"/>
+                            </div>
+
+
+
+                        </div>
+
 
                     </div>
 
