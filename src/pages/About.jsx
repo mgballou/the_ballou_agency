@@ -18,7 +18,7 @@ function About() {
                     </div>
                     <div>
                         <div className='d-flex justify-content-center my-2'>
-                            <img src="assets/headshot.jpg" alt="Marvin Ballou" className="border border-info border-3 rounded-3 border-opacity-25" style={{maxHeight: '460px', maxWidth: '100%'}} />
+                            <img src="assets/headshot.jpg" alt="Marvin Ballou" className="border border-info border-3 rounded-3 border-opacity-25" style={{ maxHeight: '460px', maxWidth: '100%' }} />
 
                         </div>
                         <div className='p-4'>
@@ -39,7 +39,7 @@ function About() {
                             </p>
 
                         </div>
-                        
+
 
                     </div>
 
@@ -58,50 +58,64 @@ function About() {
                     </div>
 
 
-                    <div className="d-flex flex-row flex-wrap gap-3">
-                        <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center  d-flex border-white w-25 gap-2 p-4'>
-                            <h4 className='card-subtitle'>
-                                Integrity
-                            </h4>
-                            <p className='mb-0'>We want you to buy war bonds.</p>
-                        </div>
-
-                        <div className='card card-body bg-info bg-opacity-25 align-items-center  d-flex border-white w-25 gap-2 p-4'>
-                            <h4 className='card-subtitle'>
-                                Integrity
-                            </h4>
-                            <p className='mb-0'>We want you to buy war bonds.</p>
-                        </div>
-
-                        <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center  d-flex border-white w-25 gap-2 p-4'>
-                            <h4 className='card-subtitle'>
-                                Integrity
-                            </h4>
-                            <p className='mb-0'>We want you to buy war bonds.</p>
-                        </div>
-
-                        <div className='card card-body bg-info bg-opacity-25 align-items-center  d-flex border-white w-25 gap-2 p-4'>
-                            <h4 className='card-subtitle'>
-                                Integrity
-                            </h4>
-                            <p className='mb-0'>We want you to buy war bonds.</p>
-                        </div>
-
-                        <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center  d-flex border-white w-25 gap-2 p-4'>
-                            <h4 className='card-subtitle'>
-                                Integrity
-                            </h4>
-                            <p className='mb-0'>We want you to buy war bonds.</p>
-                        </div>
-
-                        <div className='card card-body bg-info bg-opacity-25 align-items-center  d-flex border-white w-25 gap-2 p-4'>
-                            <h4 className='card-subtitle'>
-                                Integrity
-                            </h4>
-                            <p className='mb-0'>We want you to buy war bonds.</p>
+                    <div className="row">
+                        
+                        <div className="col-12 col-sm-6 col-md-4">
+                            <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center border-white gap-2 p-4 mb-4'>
+                                <h4 className='card-subtitle'>
+                                    Integrity
+                                </h4>
+                                <p className='mb-0'>We want you to buy war bonds.</p>
+                            </div>
                         </div>
 
 
+                        <div className="col-12 col-sm-6 col-md-4">
+                            <div className='card card-body bg-info bg-opacity-25 align-items-center border-white p-4 mb-4'>
+                                <h4 className='card-subtitle'>
+                                    Integrity
+                                </h4>
+                                <p className='mb-0'>We want you to buy war bonds.</p>
+                            </div>
+                        </div>
+
+                        <div className="col-12 col-sm-6 col-md-4">
+                            <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center border-white gap-2 p-4 mb-4'>
+                                <h4 className='card-subtitle'>
+                                    Integrity
+                                </h4>
+                                <p className='mb-0'>We want you to buy war bonds.</p>
+                            </div>
+                        </div>
+
+
+                        <div className="col-12 col-sm-6 col-md-4">
+                            <div className='card card-body bg-info bg-opacity-25 align-items-center border-white p-4 mb-4'>
+                                <h4 className='card-subtitle'>
+                                    Integrity
+                                </h4>
+                                <p className='mb-0'>We want you to buy war bonds.</p>
+                            </div>
+                        </div>
+
+                        <div className="col-12 col-sm-6 col-md-4">
+                            <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center border-white gap-2 p-4 mb-4'>
+                                <h4 className='card-subtitle'>
+                                    Integrity
+                                </h4>
+                                <p className='mb-0'>We want you to buy war bonds.</p>
+                            </div>
+                        </div>
+
+
+                        <div className="col-12 col-sm-6 col-md-4">
+                            <div className='card card-body bg-info bg-opacity-25 align-items-center border-white p-4 mb-4'>
+                                <h4 className='card-subtitle'>
+                                    Integrity
+                                </h4>
+                                <p className='mb-0'>We want you to buy war bonds.</p>
+                            </div>
+                        </div>
 
                     </div>
 
