@@ -12,7 +12,11 @@ function Home(){
       
         >
 
-            <p>Life is full of unforeseen challenges, and financial obstacles can often be the hardest to overcome. Having a trusted advisor who can help you anticipate, plan for, and weather these hurdles is invaluable. Trust The Ballou Agency to care for your financial wellness.</p>
+            <p>Life is full of unforeseen challenges, and financial obstacles can often be the hardest to overcome.</p>
+                
+            <p>Having a trusted financial services provider who can help you anticipate, plan for, and weather these hurdles is invaluable.</p>
+            
+            <p>Trust The Ballou Agency to care for your financial wellness.</p>
             
         </motion.div>
     )

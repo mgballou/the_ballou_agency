@@ -32,7 +32,6 @@ function Services(props) {
                                 <li>Asset Rollovers</li>
                                 <li>Alternative College Funding</li>
                                 <li>Retirement Planning</li>
-                                <li>Health Insurance Coverage</li>
                                 <li>Investment Planning</li>
 
                             </ul>

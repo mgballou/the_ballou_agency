@@ -23,7 +23,7 @@ function About() {
                         </div>
                         <div className='p-4'>
                             <p>
-                                As a dedicated financial advisor with more than two decades of experience in the insurance and finance field, I proudly established the Ballou Agency to address a pressing need I observed in our underserved community. My vision was to create an innovative financial services organization that offers personalized solutions to individuals, families, and businesses. Throughout my career, I've remained committed to making a positive impact on the lives of the countless individuals who have become my valued clients.
+                                As a dedicated financial services provider with more than two decades of experience in the insurance and finance field, I proudly established the Ballou Agency to address a pressing need I observed in our underserved community. My vision was to create an innovative financial services organization that offers personalized solutions to individuals, families, and businesses. Throughout my career, I've remained committed to making a positive impact on the lives of the countless individuals who have become my valued clients.
                             </p>
 
                             <p>
@@ -58,64 +58,48 @@ function About() {
                     </div>
 
 
-                    <div className="row">
+                    <div className="row justify-content-center">
                         
-                        <div className="col-12 col-sm-6 col-md-4">
-                            <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center border-white gap-2 p-4 mb-4'>
-                                <h4 className='card-subtitle'>
-                                    Integrity
+                        <div className="col-12 col-sm-8 col-lg-4 my-2">
+                            <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center border-white gap-2 p-4 mb-4 h-100'>
+                            <h4 className='card-subtitle'>
+                                    Empowerment
                                 </h4>
-                                <p className='mb-0'>We want you to buy war bonds.</p>
+                                <p className='mt-4 mb-0'>My ultimate goal is to provide the tools to build a more secure financial future for yourself. I help my clients understand and utilize vehicles thst allow your money to work for you. While I represent many different financial institutions, I work for <span className='fst-italic fw-semibold'>you</span>. This allows me to find the products that best fit your unique situation.</p>
+
+
+                                
                             </div>
                         </div>
 
 
-                        <div className="col-12 col-sm-6 col-md-4">
-                            <div className='card card-body bg-info bg-opacity-25 align-items-center border-white p-4 mb-4'>
-                                <h4 className='card-subtitle'>
-                                    Integrity
+                        <div className="col-12 col-sm-8 col-lg-4 my-2">
+                            <div className='card card-body bg-info bg-opacity-25 align-items-center border-white p-4 mb-4 h-100'>
+
+                            <h4 className='card-subtitle'>
+                                    Clarity
                                 </h4>
-                                <p className='mb-0'>We want you to buy war bonds.</p>
+                                <p className='mt-4 mb-0'>Planning for your financial future doesn't need to be complicated. Insurance & investment contracts are often filled with unfamiliar terms and legal jargon. You deserve to know the full extent of your rights and your benefits. For my clients, I comb through the complex and simplify it for anyone to understand.  </p>
+
+
+
+                                
                             </div>
                         </div>
 
-                        <div className="col-12 col-sm-6 col-md-4">
-                            <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center border-white gap-2 p-4 mb-4'>
-                                <h4 className='card-subtitle'>
-                                    Integrity
-                                </h4>
-                                <p className='mb-0'>We want you to buy war bonds.</p>
-                            </div>
-                        </div>
+                        <div className="col-12 col-sm-8 col-lg-4 my-2">
+                            <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center border-white gap-2 p-4 mb-4 h-100'>
 
-
-                        <div className="col-12 col-sm-6 col-md-4">
-                            <div className='card card-body bg-info bg-opacity-25 align-items-center border-white p-4 mb-4'>
-                                <h4 className='card-subtitle'>
-                                    Integrity
+                            <h4 className='card-subtitle'>
+                                    Education
                                 </h4>
-                                <p className='mb-0'>We want you to buy war bonds.</p>
-                            </div>
-                        </div>
-
-                        <div className="col-12 col-sm-6 col-md-4">
-                            <div className='card card-body text-white bg-dark bg-opacity-75  align-items-center border-white gap-2 p-4 mb-4'>
-                                <h4 className='card-subtitle'>
-                                    Integrity
-                                </h4>
-                                <p className='mb-0'>We want you to buy war bonds.</p>
+                                <p className='mt-4 mb-0'>Hosea 4:6 states, "My people are destroyed from a lack of knowledge." Often, we don't achieve financial security simply because we aren't fully aware of the avenues available to help us reach our goals. It is my hope that after a meeting with me, you'll better understand the wide variety of options at your disposal. </p>
+                            
                             </div>
                         </div>
 
 
-                        <div className="col-12 col-sm-6 col-md-4">
-                            <div className='card card-body bg-info bg-opacity-25 align-items-center border-white p-4 mb-4'>
-                                <h4 className='card-subtitle'>
-                                    Integrity
-                                </h4>
-                                <p className='mb-0'>We want you to buy war bonds.</p>
-                            </div>
-                        </div>
+
 
                     </div>
 
@@ -123,20 +107,7 @@ function About() {
             </div>
 
 
-            <div className='card border-dark border-5 my-5'>
-                <div className='card-body my-4'>
-
-                    <div className='card-header mb-4'>
-                        <h3 className='card-title'>We Represent</h3>
-
-                    </div>
-
-
-
-
-
-                </div>
-            </div>
+       
 
 
 
