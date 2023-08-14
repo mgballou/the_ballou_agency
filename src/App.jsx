@@ -11,10 +11,10 @@ function App() {
   return (
     <>
       <Header/>
-      <div className="container my-2">
+      
       <Main/>
 
-      </div>
+      
     </>
   )
 }
