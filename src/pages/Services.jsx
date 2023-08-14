@@ -9,6 +9,7 @@ function Services(props) {
             transition={{ duration: 1.5 }}
             exit={{ opacity: 0, transition: { duration: 0.5 } }}
             className="container  mt-5 mb-2"
+            style={{minHeight: '80vh'}}
 
         >
             <div className='card border-dark border-5 mb-5'>

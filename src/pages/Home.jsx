@@ -10,7 +10,7 @@ function Home() {
             transition={{ duration: 1.5 }}
             exit={{ opacity: 0, transition: { duration: 0.5 } }}
 
-            className="mb-2 "
+            className=""
 
 
         >
