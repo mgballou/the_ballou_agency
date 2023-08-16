@@ -25,7 +25,7 @@ function Consultation(props) {
                     </div>
                     <div className="form-group mt-4">
                         <label className="form-label">Phone Number</label>
-                        <input type="text" className="form-control" placeholder="Your Name" />
+                        <input type="text" className="form-control" placeholder="(555) 123-4567" />
                     </div>
                     <div className="form-group mt-4">
                         <label className="form-label">Email</label>
@@ -37,19 +37,19 @@ function Consultation(props) {
                     </div>
 
                     <div className="form-group mt-4">
-                        <div className="form-check">
+                        <div className="form-check my-2">
                             <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>
                                 <label className="form-check-label" for="optionsRadios1">
                                     I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.
                                 </label>
                         </div>
-                        <div className="form-check">
+                        <div className="form-check my-2">
                             <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
                                 <label className="form-check-label" for="optionsRadios2">
                                     I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.
                                 </label>
                         </div>
-                        <div className="form-check">
+                        <div className="form-check my-2">
                             <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="option3"/>
                                 <label className="form-check-label" for="optionsRadios3">
                                     I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer.
