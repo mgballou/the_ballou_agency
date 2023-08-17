@@ -33,7 +33,15 @@ function Home() {
 
 
 
-                        <button className="col-9 btn btn-lg btn-primary mx-auto my-4">Set up a consultation</button>
+                        <motion.button
+                        whileTap={{ scale: 0.9 }}
+                        whileHover={{
+                            scale: 1.2,
+                            transition: { duration: .2 },
+                        }}
+
+
+                        className="col-9 btn btn-lg btn-primary mx-auto my-4 fs-3">Set up a consultation</motion.button>
 
 
 

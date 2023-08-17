@@ -18,44 +18,135 @@ function Consultation(props) {
         >
 
             <section className="container p-4">
+
+                <h3 className="text-center text-white mb-2">Let's get in touch</h3>
+
+                <div className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto">
+                    <div className="row">
+                    <p className="fs-4 col-12 col-lg-6 p-4">I look forward to our conversation. I encourage you to reach out to me directly, or fill out the form below, and I'll contact you.</p>
+                    <div className="col-12 col-lg-6 p-4">
+                        <div>101 N Main Street</div>
+                        <div>South Boston, VA 24592</div>
+                        <div>(o) (434) 517-0777</div>
+                        <div>(c) (434) 579-0196</div>
+
+                    </div>
+                    </div>
+                </div>
+
+
                 <form action="">
-                    <div className="form-group mt-4">
+                    <legend className="">Consultation Form</legend>
+                    <div className="form-floating mt-4">
+                        <input type="text" className="form-control" placeholder="Name" />
                         <label className="form-label">Name</label>
-                        <input type="text" className="form-control" placeholder="Your Name" />
                     </div>
-                    <div className="form-group mt-4">
+
+
+                    <div className="form-floating mt-4">
+                        <input type="text" className="form-control" placeholder="Phone Number" />
                         <label className="form-label">Phone Number</label>
-                        <input type="text" className="form-control" placeholder="(555) 123-4567" />
                     </div>
-                    <div className="form-group mt-4">
+
+
+                    <div className="form-floating mt-4">
+                        <input type="email" className="form-control" placeholder="Email" />
                         <label className="form-label">Email</label>
-                        <input type="email" className="form-control" placeholder="you@email.com" />
-                    </div>
-                    <div className="form-group mt-4">
-                        <label className="form-label">Add any details to help me prepare for your consultation</label>
-                        <textarea type="text" className="form-control" placeholder="Describe your current situation and what you're looking for" />
                     </div>
 
                     <div className="form-group mt-4">
-                        <div className="form-check my-2">
-                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>
-                                <label className="form-check-label" for="optionsRadios1">
-                                    I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.
+
+                        <legend>I'm interesed in...</legend>
+
+                        <div className="row">
+                            <div className="form-check col-4 my-1">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label" for="flexCheckDefault">
+                                    Life Insurance
                                 </label>
+                            </div>
+
+                            <div className="form-check col-4 my-1">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label" for="flexCheckDefault">
+                                    Annuities
+                                </label>
+                            </div>
+
+                            <div className="form-check col-4 my-1">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label" for="flexCheckDefault">
+                                    Planning for college or retirement
+                                </label>
+                            </div>
+
+                            <div className="form-check col-4 my-1">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label" for="flexCheckDefault">
+                                    Asset Rollovers
+                                </label>
+                            </div>
+
+                            <div className="form-check col-4 my-1">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label" for="flexCheckDefault">
+                                    Investment Planning
+                                </label>
+                            </div>
+
+                            <div className="form-check col-4 my-1">
+                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label className="form-check-label" for="flexCheckDefault">
+                                    Other (add details below)
+                                </label>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <div className="form-floating mt-4">
+                        <textarea type="text" 
+                        style={{height: '10rem'}}
+                        className="form-control" placeholder="Describe your current situation and what you're looking for" />
+                        <label className="form-label text-wrap">Add any details to help me prepare for your consultation</label>
+                    </div>
+
+                    <div className="form-group mt-4">
+                        <legend>How urgent is your need?</legend>
+                        <div className="form-check my-2">
+                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
+                            <label className="form-check-label" for="optionsRadios1">
+                                I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.
+                            </label>
                         </div>
                         <div className="form-check my-2">
-                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
-                                <label className="form-check-label" for="optionsRadios2">
-                                    I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.
-                                </label>
+                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
+                            <label className="form-check-label" for="optionsRadios2">
+                                I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.
+                            </label>
                         </div>
                         <div className="form-check my-2">
-                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="option3"/>
-                                <label className="form-check-label" for="optionsRadios3">
-                                    I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer.
-                                </label>
+                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="option3" />
+                            <label className="form-check-label" for="optionsRadios3">
+                                I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer.
+                            </label>
                         </div>
                     </div>
+
+                    <div className="row">
+                    <motion.input 
+                    whileTap={{ scale: 0.9 }}
+                    whileHover={{
+                        scale: 1.2,
+                        transition: { duration: .2 },
+                    }}
+                    
+                    className="col-9 btn btn-lg btn-primary mx-auto my-4" type="submit" />
+
+                    </div>
+
 
 
 
