@@ -1,7 +1,14 @@
 import { motion } from "framer-motion"
+import { useNavigate } from "react-router"
 
 
 function Home() {
+
+    const navigate = useNavigate()
+
+    function handleClick(){
+        navigate("/consultation")
+    }
 
     return (
         <motion.div
@@ -39,6 +46,7 @@ function Home() {
                             scale: 1.2,
                             transition: { duration: .2 },
                         }}
+                        onClick={handleClick}
 
 
                         className="col-9 btn btn-lg btn-primary mx-auto my-4 fs-3">Set up a consultation</motion.button>

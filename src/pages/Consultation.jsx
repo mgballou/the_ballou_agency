@@ -1,11 +1,86 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 
+import emailjs from '@emailjs/browser';
+
+const interestedInOptions = {
+    option1: "Life Insurance",
+    option2: "Annuities",
+    option3: "Planning for college or retirement",
+    option4: "Asset Rollovers",
+    option5: "Investment Planning",
+    option6: "Other"
+}
+
+const urgencyOptions = {
+    option1: "I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.",
+    option2: "I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.",
+    option3: "I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer."
+}
+
 
 function Consultation(props) {
 
-    return (
+    const form = useRef()
 
+    const [formSuccess, setFormSuccess] = useState(0)
+
+    const [formData, setFormData] = useState({
+        name: "",
+        phoneNumber: "",
+        email: "",
+        interestedIn: [],
+        moreDetails: "",
+        urgency: ""
+
+    })
+
+
+
+    function handleFormChange(evt){
+        if (evt.target.name !== "interestedIn") {
+            setFormData({ ...formData, [evt.target.name]: evt.target.value })
+        } else {
+            const {value, checked} = evt.target
+            const { interestedIn } = formData
+            if (checked) {
+                setFormData({...formData, interestedIn: [...interestedIn, value]})
+            } else {
+                setFormData({...formData, interestedIn: interestedIn.filter((option) => option !== value)})
+
+            }
+        }
+
+
+        console.log(formData)
+
+    }
+
+    async function handleFormSubmit(evt){
+        evt.preventDefault()
+        console.log("form submitting")
+        try {
+            const formCopy = formData
+            console.log(formCopy)
+
+            formCopy.interestedIn = formCopy.interestedIn?.map((option) => {
+                return interestedInOptions[option]
+            })
+            console.log("interested options")
+
+            console.log(formCopy)
+            formCopy.urgency = urgencyOptions[formCopy.urgency]
+            console.log("urgency")
+            console.log(formCopy)
+            const result = await emailjs.send("service_fr8qx3e", 'template_5t4q7kk', formCopy, "")
+            
+        } catch (error) {
+            
+        }
+        
+    }
+
+    return (
 
         <motion.div
             initial={{ opacity: 0 }}
@@ -22,8 +97,8 @@ function Consultation(props) {
                 <h3 className="text-center text-white mb-2">Let's get in touch</h3>
 
                 <div className="row">
-                    <div className="col-lg-4 col-12">
-                        <img className="border border-info border-3 rounded-3 border-opacity-25 img-fluid" src="/assets/in-suit.jpeg" alt="" />
+                    <div className="col-lg-4 col-9 mx-auto">
+                        <img className="border border-dark border-3 rounded-3 border-opacity-25 img-fluid" src="/assets/in-suit.jpeg" alt="" />
 
                     </div>
                     <div className="col-lg-8 col-12 d-flex flex-column justify-content-evenly">
@@ -37,11 +112,10 @@ function Consultation(props) {
                             <div className="fs-4 my-auto px-4">
                                 <div>505 North Main Street</div>
                                 <div>South Boston, VA 24592</div>
-                                <div className="my-3">Hours by appointment</div>
-                                <div className="row">
-                                    <p className="col-12 col-lg-6">(o) 434-517-0777</p>
-                                    <p className="col-12 col-lg-6">(c) 434-579-0196</p>
-                                </div>
+                                <div>(o) 434-517-0777</div>
+                                <div>(c) 434-579-0196</div>
+                                
+                                <div className="mt-4 fst-italic">Hours by appointment</div>
 
                             </div>
 
@@ -57,22 +131,22 @@ function Consultation(props) {
 
 
 
-                <form action="" className="my-3">
+                <form ref={form} className="my-3" onSubmit={handleFormSubmit}>
                     <legend className="">Consultation Form</legend>
                     <div className="form-floating mt-4">
-                        <input type="text" className="form-control" placeholder="Name" />
+                        <input onChange={handleFormChange} type="text" className="form-control" placeholder="Name" name="name" value={formData.name}/>
                         <label className="form-label">Name</label>
                     </div>
 
 
                     <div className="form-floating mt-4">
-                        <input type="text" className="form-control" placeholder="Phone Number" />
+                        <input onChange={handleFormChange} type="text" className="form-control" placeholder="Phone Number" name="phoneNumber" value={formData.phoneNumber} />
                         <label className="form-label">Phone Number</label>
                     </div>
 
 
                     <div className="form-floating mt-4">
-                        <input type="email" className="form-control" placeholder="Email" />
+                        <input onChange={handleFormChange} type="email" className="form-control" placeholder="Email" name="email" value={formData.email} />
                         <label className="form-label">Email</label>
                     </div>
 
@@ -82,43 +156,43 @@ function Consultation(props) {
 
                         <div className="row">
                             <div className="form-check col-4 my-1">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option1" />
+                                <label className="form-check-label">
                                     Life Insurance
                                 </label>
                             </div>
 
                             <div className="form-check col-4 my-1">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option2"  />
+                                <label className="form-check-label">
                                     Annuities
                                 </label>
                             </div>
 
                             <div className="form-check col-4 my-1">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option3" />
+                                <label className="form-check-label">
                                     Planning for college or retirement
                                 </label>
                             </div>
 
                             <div className="form-check col-4 my-1">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option4" />
+                                <label className="form-check-label">
                                     Asset Rollovers
                                 </label>
                             </div>
 
                             <div className="form-check col-4 my-1">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option5"  />
+                                <label className="form-check-label">
                                     Investment Planning
                                 </label>
                             </div>
 
                             <div className="form-check col-4 my-1">
-                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label className="form-check-label" for="flexCheckDefault">
+                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option6"  />
+                                <label className="form-check-label">
                                     Other (add details below)
                                 </label>
                             </div>
@@ -129,29 +203,29 @@ function Consultation(props) {
                     </div>
 
                     <div className="form-floating mt-4">
-                        <textarea type="text"
+                        <textarea onChange={handleFormChange} type="text"
                             style={{ height: '10rem' }}
-                            className="form-control" placeholder="Describe your current situation and what you're looking for" />
+                            className="form-control" placeholder="Describe your current situation and what you're looking for" name="moreDetails" value={formData.moreDetails}/>
                         <label className="form-label text-wrap">Add any details to help me prepare for your consultation</label>
                     </div>
 
                     <div className="form-group mt-4">
                         <legend>How urgent is your need?</legend>
                         <div className="form-check my-2">
-                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" />
-                            <label className="form-check-label" for="optionsRadios1">
+                            <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency" value="option1" />
+                            <label className="form-check-label">
                                 I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.
                             </label>
                         </div>
                         <div className="form-check my-2">
-                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
-                            <label className="form-check-label" for="optionsRadios2">
+                            <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency"  value="option2" />
+                            <label className="form-check-label">
                                 I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.
                             </label>
                         </div>
                         <div className="form-check my-2">
-                            <input className="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="option3" />
-                            <label className="form-check-label" for="optionsRadios3">
+                            <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency"  value="option3" />
+                            <label className="form-check-label">
                                 I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer.
                             </label>
                         </div>
