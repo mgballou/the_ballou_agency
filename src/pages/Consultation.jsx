@@ -21,21 +21,43 @@ function Consultation(props) {
 
                 <h3 className="text-center text-white mb-2">Let's get in touch</h3>
 
-                <div className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto">
-                    <div className="row">
-                    <p className="fs-4 col-12 col-lg-6 p-4">I look forward to our conversation. I encourage you to reach out to me directly, or fill out the form below, and I'll contact you.</p>
-                    <div className="col-12 col-lg-6 p-4">
-                        <div>101 N Main Street</div>
-                        <div>South Boston, VA 24592</div>
-                        <div>(o) (434) 517-0777</div>
-                        <div>(c) (434) 579-0196</div>
+                <div className="row">
+                    <div className="col-lg-4 col-12">
+                        <img className="border border-info border-3 rounded-3 border-opacity-25 img-fluid" src="/assets/in-suit.jpeg" alt="" />
 
                     </div>
+                    <div className="col-lg-8 col-12 d-flex flex-column justify-content-evenly">
+                        <div className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto w-75">
+
+                            <div className="fs-4 my-auto px-4">I look forward to our conversation. I encourage you to reach out to me directly, or fill out the form below, and I'll contact you.</div>
+
+                        </div>
+
+                        <div className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto w-75">
+                            <div className="fs-4 my-auto px-4">
+                                <div>505 North Main Street</div>
+                                <div>South Boston, VA 24592</div>
+                                <div className="my-3">Hours by appointment</div>
+                                <div className="row">
+                                    <p className="col-12 col-lg-6">(o) 434-517-0777</p>
+                                    <p className="col-12 col-lg-6">(c) 434-579-0196</p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
                     </div>
+
                 </div>
 
 
-                <form action="">
+
+
+
+
+                <form action="" className="my-3">
                     <legend className="">Consultation Form</legend>
                     <div className="form-floating mt-4">
                         <input type="text" className="form-control" placeholder="Name" />
@@ -107,9 +129,9 @@ function Consultation(props) {
                     </div>
 
                     <div className="form-floating mt-4">
-                        <textarea type="text" 
-                        style={{height: '10rem'}}
-                        className="form-control" placeholder="Describe your current situation and what you're looking for" />
+                        <textarea type="text"
+                            style={{ height: '10rem' }}
+                            className="form-control" placeholder="Describe your current situation and what you're looking for" />
                         <label className="form-label text-wrap">Add any details to help me prepare for your consultation</label>
                     </div>
 
@@ -136,14 +158,14 @@ function Consultation(props) {
                     </div>
 
                     <div className="row">
-                    <motion.input 
-                    whileTap={{ scale: 0.9 }}
-                    whileHover={{
-                        scale: 1.2,
-                        transition: { duration: .2 },
-                    }}
-                    
-                    className="col-9 btn btn-lg btn-primary mx-auto my-4" type="submit" />
+                        <motion.input
+                            whileTap={{ scale: 0.9 }}
+                            whileHover={{
+                                scale: 1.2,
+                                transition: { duration: .2 },
+                            }}
+
+                            className="col-9 btn btn-lg btn-primary mx-auto my-4" type="submit" />
 
                     </div>
 

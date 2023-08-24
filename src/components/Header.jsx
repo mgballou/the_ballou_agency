@@ -36,9 +36,6 @@ function Header(props) {
                             <Link className={activeLink !== "/about" ? "nav-link" : "nav-link active"} to="/about" id="/about">About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={activeLink !== "/services" ? "nav-link" : "nav-link active"} to="/services" id="/services">Services</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className={activeLink !== "/blog" ? "nav-link" : "nav-link active"} to="/blog" id="/blog">Blog</Link>
                         </li>
                         <li className="nav-item">

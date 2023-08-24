@@ -22,10 +22,6 @@ function Main(props) {
             element: <About />
         },
         {
-            path: "/services",
-            element: <Services />
-        },
-        {
             path: "/consultation",
             element: <Consultation />
         }

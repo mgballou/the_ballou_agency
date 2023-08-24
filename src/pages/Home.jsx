@@ -14,7 +14,7 @@ function Home() {
 
 
         >
-            <section className="container-fluid min-vh-100 overflow-auto" style={{ background: "url('/assets/stacking-coins.jpeg')", aspectRatio: '16/9', backgroundSize: 'cover', backgroundPosition: 'bottom center', backgroundRepeat: "no-repeat", backgroundAttachment: 'fixed' }}>
+            <section className="container-fluid min-vh-100 overflow-auto" style={{ background: "url('/assets/presenting.jpeg')", aspectRatio: '16/9', backgroundSize: 'cover', backgroundPosition: 'top center', backgroundRepeat: "no-repeat", backgroundAttachment: 'fixed' }}>
 
 
                 <div className="h-100 p-4 container-xxl" style={{ backdropFilter: "blur(10px)" }}>
