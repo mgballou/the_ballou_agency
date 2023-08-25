@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import emailjs from '@emailjs/browser';
 
@@ -21,8 +21,6 @@ const urgencyOptions = {
 
 function Consultation(props) {
 
-    const form = useRef()
-
     const [formSuccess, setFormSuccess] = useState(0)
 
     const [formData, setFormData] = useState({
@@ -37,47 +35,59 @@ function Consultation(props) {
 
 
 
-    function handleFormChange(evt){
+    function handleFormChange(evt) {
         if (evt.target.name !== "interestedIn") {
             setFormData({ ...formData, [evt.target.name]: evt.target.value })
         } else {
-            const {value, checked} = evt.target
+            const { value, checked } = evt.target
             const { interestedIn } = formData
             if (checked) {
-                setFormData({...formData, interestedIn: [...interestedIn, value]})
+                setFormData({ ...formData, interestedIn: [...interestedIn, value] })
             } else {
-                setFormData({...formData, interestedIn: interestedIn.filter((option) => option !== value)})
+                setFormData({ ...formData, interestedIn: interestedIn.filter((option) => option !== value) })
 
             }
         }
 
-
-        console.log(formData)
-
     }
 
-    async function handleFormSubmit(evt){
+    async function handleFormSubmit(evt) {
         evt.preventDefault()
-        console.log("form submitting")
+        if (formSuccess !== 0) {
+            setFormSuccess(0)
+        }
         try {
-            const formCopy = formData
-            console.log(formCopy)
+            let formCopy = formData
 
             formCopy.interestedIn = formCopy.interestedIn?.map((option) => {
                 return interestedInOptions[option]
             })
-            console.log("interested options")
 
-            console.log(formCopy)
             formCopy.urgency = urgencyOptions[formCopy.urgency]
-            console.log("urgency")
-            console.log(formCopy)
-            const result = await emailjs.send("service_fr8qx3e", 'template_5t4q7kk', formCopy, "")
-            
+
+            const result = await emailjs.send("service_fr8qx3e", 'template_5t4q7kk', formCopy, "LgvhRZ158CF77BdSY")
+            if (result.text === "OK") {
+                setFormSuccess(1)
+                setFormData({
+                    name: "",
+                    phoneNumber: "",
+                    email: "",
+                    interestedIn: [],
+                    moreDetails: "",
+                    urgency: ""
+
+                })
+            } else {
+                throw new Error(result.text)
+
+
+            }
+
         } catch (error) {
-            
+            setFormSuccess(-1)
+
         }
-        
+
     }
 
     return (
@@ -88,7 +98,7 @@ function Consultation(props) {
             transition={{ duration: 1.5 }}
             exit={{ opacity: 0, transition: { duration: 0.5 } }}
             className="bg-info bg-opacity-75"
-            style={{ minHeight: '80vh' }}
+            style={{ minHeight: '90vh' }}
 
         >
 
@@ -114,7 +124,7 @@ function Consultation(props) {
                                 <div>South Boston, VA 24592</div>
                                 <div>(o) 434-517-0777</div>
                                 <div>(c) 434-579-0196</div>
-                                
+
                                 <div className="mt-4 fst-italic">Hours by appointment</div>
 
                             </div>
@@ -126,129 +136,177 @@ function Consultation(props) {
 
                 </div>
 
+                <AnimatePresence>
+
+                    {formSuccess === -1 ?
+
+                        <motion.div className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto w-75" key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+
+                            <div className="fs-4 my-auto px-4">There was an error, please try again.</div>
+
+                        </motion.div>
+
+
+                        :
+
+                        <></>
+
+                    }
 
 
 
 
 
-                <form ref={form} className="my-3" onSubmit={handleFormSubmit}>
-                    <legend className="">Consultation Form</legend>
-                    <div className="form-floating mt-4">
-                        <input onChange={handleFormChange} type="text" className="form-control" placeholder="Name" name="name" value={formData.name}/>
-                        <label className="form-label">Name</label>
-                    </div>
+
+                    {formSuccess === 1 ?
+
+                        <motion.div className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto w-75" key="thanks" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+
+                            <div className="fs-4 my-auto px-4">Thanks for your submission!</div>
+
+                        </motion.div>
 
 
-                    <div className="form-floating mt-4">
-                        <input onChange={handleFormChange} type="text" className="form-control" placeholder="Phone Number" name="phoneNumber" value={formData.phoneNumber} />
-                        <label className="form-label">Phone Number</label>
-                    </div>
 
 
-                    <div className="form-floating mt-4">
-                        <input onChange={handleFormChange} type="email" className="form-control" placeholder="Email" name="email" value={formData.email} />
-                        <label className="form-label">Email</label>
-                    </div>
 
-                    <div className="form-group mt-4">
+                        :
 
-                        <legend>I'm interesed in...</legend>
 
-                        <div className="row">
-                            <div className="form-check col-4 my-1">
-                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option1" />
-                                <label className="form-check-label">
-                                    Life Insurance
-                                </label>
+                        <motion.form
+                            exit={{ scale: 0, opacity: 0 }}
+                            transition={{duration: 1}}
+                            layout
+                            key="form"
+
+                            className="my-3" onSubmit={handleFormSubmit}>
+                            <legend className="">Consultation Form</legend>
+                            <div className="form-floating mt-4">
+                                <input onChange={handleFormChange} type="text" className="form-control" placeholder="Name" name="name" value={formData.name} />
+                                <label className="form-label">Name</label>
                             </div>
 
-                            <div className="form-check col-4 my-1">
-                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option2"  />
-                                <label className="form-check-label">
-                                    Annuities
-                                </label>
+
+                            <div className="form-floating mt-4">
+                                <input onChange={handleFormChange} type="text" className="form-control" placeholder="Phone Number" name="phoneNumber" value={formData.phoneNumber} />
+                                <label className="form-label">Phone Number</label>
                             </div>
 
-                            <div className="form-check col-4 my-1">
-                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option3" />
-                                <label className="form-check-label">
-                                    Planning for college or retirement
-                                </label>
+
+                            <div className="form-floating mt-4">
+                                <input onChange={handleFormChange} type="email" className="form-control" placeholder="Email" name="email" value={formData.email} />
+                                <label className="form-label">Email</label>
                             </div>
 
-                            <div className="form-check col-4 my-1">
-                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option4" />
-                                <label className="form-check-label">
-                                    Asset Rollovers
-                                </label>
+                            <div className="form-group mt-4">
+
+                                <legend>I'm interesed in...</legend>
+
+                                <div className="row">
+                                    <div className="form-check col-4 my-1">
+                                        <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option1" />
+                                        <label className="form-check-label">
+                                            Life Insurance
+                                        </label>
+                                    </div>
+
+                                    <div className="form-check col-4 my-1">
+                                        <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option2" />
+                                        <label className="form-check-label">
+                                            Annuities
+                                        </label>
+                                    </div>
+
+                                    <div className="form-check col-4 my-1">
+                                        <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option3" />
+                                        <label className="form-check-label">
+                                            Planning for college or retirement
+                                        </label>
+                                    </div>
+
+                                    <div className="form-check col-4 my-1">
+                                        <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option4" />
+                                        <label className="form-check-label">
+                                            Asset Rollovers
+                                        </label>
+                                    </div>
+
+                                    <div className="form-check col-4 my-1">
+                                        <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option5" />
+                                        <label className="form-check-label">
+                                            Investment Planning
+                                        </label>
+                                    </div>
+
+                                    <div className="form-check col-4 my-1">
+                                        <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option6" />
+                                        <label className="form-check-label">
+                                            Other (add details below)
+                                        </label>
+                                    </div>
+
+                                </div>
+
+
                             </div>
 
-                            <div className="form-check col-4 my-1">
-                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option5"  />
-                                <label className="form-check-label">
-                                    Investment Planning
-                                </label>
+                            <div className="form-floating mt-4">
+                                <textarea onChange={handleFormChange} type="text"
+                                    style={{ height: '10rem' }}
+                                    className="form-control" placeholder="Describe your current situation and what you're looking for" name="moreDetails" value={formData.moreDetails} />
+                                <label className="form-label text-wrap">Add any details to help me prepare for your consultation</label>
                             </div>
 
-                            <div className="form-check col-4 my-1">
-                                <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option6"  />
-                                <label className="form-check-label">
-                                    Other (add details below)
-                                </label>
+                            <div className="form-group mt-4">
+                                <legend>How urgent is your need?</legend>
+                                <div className="form-check my-2">
+                                    <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency" value="option1" />
+                                    <label className="form-check-label">
+                                        I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.
+                                    </label>
+                                </div>
+                                <div className="form-check my-2">
+                                    <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency" value="option2" />
+                                    <label className="form-check-label">
+                                        I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.
+                                    </label>
+                                </div>
+                                <div className="form-check my-2">
+                                    <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency" value="option3" />
+                                    <label className="form-check-label">
+                                        I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer.
+                                    </label>
+                                </div>
                             </div>
 
-                        </div>
+                            <div className="row">
+                                <motion.input
+                                    whileTap={{ scale: 0.9 }}
+                                    whileHover={{
+                                        scale: 1.2,
+                                        transition: { duration: .2 },
+                                    }}
 
+                                    className="col-9 btn btn-lg btn-primary mx-auto my-4" type="submit" />
 
-                    </div>
-
-                    <div className="form-floating mt-4">
-                        <textarea onChange={handleFormChange} type="text"
-                            style={{ height: '10rem' }}
-                            className="form-control" placeholder="Describe your current situation and what you're looking for" name="moreDetails" value={formData.moreDetails}/>
-                        <label className="form-label text-wrap">Add any details to help me prepare for your consultation</label>
-                    </div>
-
-                    <div className="form-group mt-4">
-                        <legend>How urgent is your need?</legend>
-                        <div className="form-check my-2">
-                            <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency" value="option1" />
-                            <label className="form-check-label">
-                                I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.
-                            </label>
-                        </div>
-                        <div className="form-check my-2">
-                            <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency"  value="option2" />
-                            <label className="form-check-label">
-                                I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.
-                            </label>
-                        </div>
-                        <div className="form-check my-2">
-                            <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency"  value="option3" />
-                            <label className="form-check-label">
-                                I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer.
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <motion.input
-                            whileTap={{ scale: 0.9 }}
-                            whileHover={{
-                                scale: 1.2,
-                                transition: { duration: .2 },
-                            }}
-
-                            className="col-9 btn btn-lg btn-primary mx-auto my-4" type="submit" />
-
-                    </div>
+                            </div>
 
 
 
 
 
 
-                </form>
+                        </motion.form>
+
+                    }
+
+
+                </AnimatePresence>
+
+
+
+
+
 
             </section>
 
