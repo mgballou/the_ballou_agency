@@ -21,7 +21,7 @@ function Header(props) {
 
 
     return (
-        <nav className="navbar navbar-expand-lg bg-dark mb-4" data-bs-theme="dark" onClick={checkActive}>
+        <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" onClick={checkActive}>
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/" id="brand">The Ballou Agency</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,9 +34,6 @@ function Header(props) {
                         </li>
                         <li className="nav-item">
                             <Link className={activeLink !== "/about" ? "nav-link" : "nav-link active"} to="/about" id="/about">About</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className={activeLink !== "/services" ? "nav-link" : "nav-link active"} to="/services" id="/services">Services</Link>
                         </li>
                         <li className="nav-item">
                             <Link className={activeLink !== "/blog" ? "nav-link" : "nav-link active"} to="/blog" id="/blog">Blog</Link>

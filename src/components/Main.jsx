@@ -6,7 +6,8 @@ import { AnimatePresence } from 'framer-motion';
 
 import Home from "../pages/Home";
 import About from "../pages/About";
-import Services from "../pages/Services";
+import Consultation from "../pages/Consultation";
+import Blog from "../pages/Blog";
 
 
 function Main(props) {
@@ -21,8 +22,12 @@ function Main(props) {
             element: <About />
         },
         {
-            path:"/services",
-            element: <Services />
+            path: "/consultation",
+            element: <Consultation />
+        },
+        {
+            path: "/blog",
+            element: <Blog />
         }
 
 

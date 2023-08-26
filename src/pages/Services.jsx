@@ -8,6 +8,8 @@ function Services(props) {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
             exit={{ opacity: 0, transition: { duration: 0.5 } }}
+            className="container  mt-5 mb-2"
+            style={{minHeight: '80vh'}}
 
         >
             <div className='card border-dark border-5 mb-5'>
@@ -32,7 +34,6 @@ function Services(props) {
                                 <li>Asset Rollovers</li>
                                 <li>Alternative College Funding</li>
                                 <li>Retirement Planning</li>
-                                <li>Health Insurance Coverage</li>
                                 <li>Investment Planning</li>
 
                             </ul>
