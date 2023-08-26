@@ -49,7 +49,7 @@ function Home() {
                         onClick={handleClick}
 
 
-                        className="col-9 btn btn-lg btn-primary mx-auto my-4 fs-3">Set up a consultation</motion.button>
+                        className="col-5 btn btn-lg btn-primary mx-auto my-4 fs-3">Set up a consultation</motion.button>
 
 
 
