@@ -8,12 +8,12 @@ const interestedInOptions = {
     option2: "Annuities",
     option3: "Planning for college or retirement",
     option4: "Asset Rollovers",
-    option5: "Investment Planning",
+    option5: "Safe money savings programs",
     option6: "Other"
 }
 
 const urgencyOptions = {
-    option1: "I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.",
+    option1: "I'm definitely seeking to move forward with an insurance policy or investment in the near future.",
     option2: "I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.",
     option3: "I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer."
 }
@@ -29,9 +29,12 @@ function Consultation(props) {
         email: "",
         interestedIn: [],
         moreDetails: "",
-        urgency: ""
+        urgency: "",
+        bestTime: ""
 
     })
+
+    const [message, setMessage] = useState("")
 
 
 
@@ -57,6 +60,16 @@ function Consultation(props) {
             setFormSuccess(0)
         }
         try {
+            if (formData.interestedIn === []) {
+                setMessage("select what you're interested in")
+                throw new Error
+
+            } else if (formData.urgency === "") {
+                setMessage("select how urgent your need is")
+                throw new Error
+
+            }
+
             let formCopy = formData
 
             formCopy.interestedIn = formCopy.interestedIn?.map((option) => {
@@ -65,7 +78,7 @@ function Consultation(props) {
 
             formCopy.urgency = urgencyOptions[formCopy.urgency]
 
-            const result = await emailjs.send("service_fr8qx3e", 'template_5t4q7kk', formCopy, "LgvhRZ158CF77BdSY")
+            const result = await emailjs.send("service_qf04ocq", 'template_hbnj8b9', formCopy, "Apa70y-AuqwxhkL1l")
             if (result.text === "OK") {
                 setFormSuccess(1)
                 setFormData({
@@ -78,6 +91,7 @@ function Consultation(props) {
 
                 })
             } else {
+                setMessage("try again")
                 throw new Error(result.text)
 
 
@@ -108,7 +122,7 @@ function Consultation(props) {
 
                 <div className="row">
                     <div className="col-lg-4 col-9 mx-auto">
-                        <img className="border border-dark border-3 rounded-3 border-opacity-25 img-fluid" src="/assets/in-suit.jpeg" alt="" />
+                        <img className="border border-dark border-3 rounded-3 border-opacity-25 img-fluid" src="/assets/in-suit.jpeg" alt="" loading="lazy" />
 
                     </div>
                     <div className="col-lg-8 col-12 d-flex flex-column justify-content-evenly">
@@ -138,26 +152,6 @@ function Consultation(props) {
 
                 <AnimatePresence>
 
-                    {formSuccess === -1 ?
-
-                        <motion.div className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto w-75" key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-
-                            <div className="fs-4 my-auto px-4">There was an error, please try again.</div>
-
-                        </motion.div>
-
-
-                        :
-
-                        <></>
-
-                    }
-
-
-
-
-
-
                     {formSuccess === 1 ?
 
                         <motion.div className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto w-75" key="thanks" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
@@ -166,29 +160,24 @@ function Consultation(props) {
 
                         </motion.div>
 
-
-
-
-
                         :
-
 
                         <motion.form
                             exit={{ scale: 0, opacity: 0 }}
-                            transition={{duration: 1}}
+                            transition={{ duration: 1 }}
                             layout
                             key="form"
 
                             className="my-3" onSubmit={handleFormSubmit}>
                             <legend className="">Consultation Form</legend>
                             <div className="form-floating mt-4">
-                                <input onChange={handleFormChange} type="text" className="form-control" placeholder="Name" name="name" value={formData.name} />
+                                <input onChange={handleFormChange} type="text" className="form-control" placeholder="Name" name="name" value={formData.name} required />
                                 <label className="form-label">Name</label>
                             </div>
 
 
                             <div className="form-floating mt-4">
-                                <input onChange={handleFormChange} type="text" className="form-control" placeholder="Phone Number" name="phoneNumber" value={formData.phoneNumber} />
+                                <input onChange={handleFormChange} type="text" className="form-control" placeholder="Phone Number" name="phoneNumber" value={formData.phoneNumber} required />
                                 <label className="form-label">Phone Number</label>
                             </div>
 
@@ -234,7 +223,7 @@ function Consultation(props) {
                                     <div className="form-check col-4 my-1">
                                         <input className="form-check-input" onChange={handleFormChange} type="checkbox" name="interestedIn" value="option5" />
                                         <label className="form-check-label">
-                                            Investment Planning
+                                            Safe money savings programs
                                         </label>
                                     </div>
 
@@ -254,7 +243,14 @@ function Consultation(props) {
                                 <textarea onChange={handleFormChange} type="text"
                                     style={{ height: '10rem' }}
                                     className="form-control" placeholder="Describe your current situation and what you're looking for" name="moreDetails" value={formData.moreDetails} />
-                                <label className="form-label text-wrap">Add any details to help me prepare for your consultation</label>
+                                <label className="form-label text-wrap">Add any details to help me prepare for your consultation. You can describe your current situation, or what you're looking for.</label>
+                            </div>
+
+                            <div className="form-floating mt-4">
+                                <textarea onChange={handleFormChange} type="text"
+                                    style={{ height: '5rem' }}
+                                    className="form-control" placeholder="What are the best times to contact you?" name="bestTime" value={formData.moreDetails} />
+                                <label className="form-label text-wrap">When would you like to have your consultation? I can accommodate standard business hours as well as evenings and weekends.</label>
                             </div>
 
                             <div className="form-group mt-4">
@@ -262,7 +258,7 @@ function Consultation(props) {
                                 <div className="form-check my-2">
                                     <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency" value="option1" />
                                     <label className="form-check-label">
-                                        I'm definitely seeking to move forward with an insurance policy or investment vehicle the next 30 days.
+                                        I'm definitely seeking to move forward with an insurance policy or investment vehicle in the near future.
                                     </label>
                                 </div>
                                 <div className="form-check my-2">
@@ -297,6 +293,21 @@ function Consultation(props) {
 
 
                         </motion.form>
+
+                    }
+
+                    {formSuccess === -1 ?
+
+                        <motion.div layout className="mt-4 mb-2 card card-body bg-white bg-opacity-50 text-center mx-auto w-75" key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+
+                            <div className="fs-4 my-auto px-4">There was an error, please {message}.</div>
+
+                        </motion.div>
+
+
+                        :
+
+                        <></>
 
                     }
 

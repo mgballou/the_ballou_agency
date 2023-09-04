@@ -26,7 +26,7 @@ function Blog(props) {
 
 
                         <div className="col-9 col-lg-3 mx-auto">
-                            <img src="assets/working.jpeg" alt="" className="border border-info border-3 rounded-3 border-opacity-25 img-fluid" />
+                            <img src="assets/working.jpeg" alt="" className="border border-info border-3 rounded-3 border-opacity-25 img-fluid" loading="lazy"/>
 
                         </div>
 
@@ -40,7 +40,7 @@ function Blog(props) {
 
                                 :
                                 <div className="p-4 card-text">
-                                    <p>Check back for articles, insights, and updates on the latest in financial services and investing.</p>
+                                    <p>Check back for articles, insights, and updates on the latest in financial services and products.</p>
 
 
                                 </div>
