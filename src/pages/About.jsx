@@ -19,7 +19,7 @@ function About() {
                     </div>
                     <div>
                         <div className='d-flex justify-content-center my-2'>
-                            <img src="assets/headshot.jpg" alt="Marvin Ballou" className="border border-info border-3 rounded-3 border-opacity-25" style={{ maxHeight: '460px', maxWidth: '100%' }} />
+                            <img src="assets/headshot.jpg" alt="Marvin Ballou" className="border border-info border-3 rounded-3 border-opacity-25" style={{ maxHeight: '460px', maxWidth: '100%' }} loading="lazy"/>
 
                         </div>
                         <div className='p-4'>
@@ -28,7 +28,7 @@ function About() {
                             </p>
 
                             <p>
-                                Through enduring partnerships with industry-leading organizations, my company can provide a comprehensive range of services, including life insurance protection, alternative college funding, retirement planning, health insurance coverage, investment planning, asset rollovers, and much more. My approach centers on understanding the unique circumstances of each client, allowing me to tailor information and options to best suit their individual needs.
+                                Through enduring partnerships with industry-leading organizations, my company can provide a comprehensive range of services, including life insurance protection, alternative college funding, retirement planning, health insurance coverage, safe money savings programs, asset rollovers, and much more. My approach centers on understanding the unique circumstances of each client, allowing me to tailor information and options to best suit their individual needs.
                             </p>
 
                             <p>
@@ -55,7 +55,7 @@ function About() {
             <div className='card border-dark border-5 my-5'>
                 <div className='card-body my-4'>
                     <div className='card-header mb-4'>
-                        <h3 className='card-title'>Our Values</h3>
+                        <h3 className='card-title'>Values</h3>
                     </div>
 
 
@@ -80,7 +80,7 @@ function About() {
                             <h4 className='card-subtitle'>
                                     Clarity
                                 </h4>
-                                <p className='mt-4 mb-0'>Planning for your financial future doesn't need to be complicated. Insurance & investment contracts are often filled with unfamiliar terms and legal jargon. You deserve to know the full extent of your rights and your benefits. For my clients, I comb through the complex and simplify it for anyone to understand.  </p>
+                                <p className='mt-4 mb-0'>Planning for your financial future doesn't need to be complicated. Insurance & financial contracts are often filled with unfamiliar terms and legal jargon. You deserve to know the full extent of your rights and your benefits. For my clients, I comb through the complex and simplify it for anyone to understand.  </p>
 
 
 
@@ -129,12 +129,12 @@ function About() {
                                 <li>Asset Rollovers</li>
                                 <li>Alternative College Funding</li>
                                 <li>Retirement Planning</li>
-                                <li>Investment Planning</li>
+                                <li>Safe money savings programs</li>
 
                             </ul>
                             <div className="col-12 col-lg-6" 
                             >
-                                <img src='/assets/shaking-hands.jpg' alt="shaking hands" className="border border-info border-3 rounded-3 border-opacity-25 img-fluid"/>
+                                <img src='/assets/shaking-hands.jpg' alt="shaking hands" className="border border-info border-3 rounded-3 border-opacity-25 img-fluid" loading="lazy"/>
                             </div>
 
 
