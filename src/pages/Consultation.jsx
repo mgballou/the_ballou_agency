@@ -283,7 +283,7 @@ function Consultation(props) {
                                         transition: { duration: .2 },
                                     }}
 
-                                    className="col-5 btn btn-lg btn-primary mx-auto my-4 fs-4" type="submit" />
+                                    className="col-9 col-lg-5 btn btn-lg btn-primary mx-auto my-4 fs-4" type="submit" />
 
                             </div>
 

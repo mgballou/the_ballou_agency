@@ -49,7 +49,7 @@ function Home() {
                         onClick={handleClick}
 
 
-                        className="col-5 btn btn-lg btn-primary mx-auto my-4 fs-3">Set up a consultation</motion.button>
+                        className="col-9 col-lg-5 btn btn-lg btn-primary mx-auto my-4 fs-3">Set up a consultation</motion.button>
 
 
 
@@ -74,7 +74,7 @@ function Home() {
                         <div className="card-text card-body">
                             <p>After a sudden layoff, strategized a penalty-free withdrawal of retirement funds</p>
                             <p>Enabled the client to financially support their family during uncertain times</p>
-                            <p>Later, facilitated the use of the same plan for a relative's life-saving emergency operation</p>
+                            <p>Provided a pathway for the client to access their assets when they needed it most</p>
                         </div>
                     </div>
                 </div>
