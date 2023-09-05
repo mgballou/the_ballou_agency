@@ -13,7 +13,7 @@ const interestedInOptions = {
 }
 
 const urgencyOptions = {
-    option1: "I'm definitely seeking to move forward with an insurance policy or investment in the near future.",
+    option1: "I'm definitely seeking to move forward with an insurance policy or other products in the near future.",
     option2: "I'd like to know more about my options, but I wouldn't plan to do anything in the next 30 days.",
     option3: "I'm not anticpating making any immediate changes, but I would like to learn more about what you can offer."
 }
@@ -248,7 +248,7 @@ function Consultation(props) {
 
                             <div className="form-floating mt-4">
                                 <textarea onChange={handleFormChange} type="text"
-                                    style={{ height: '5rem' }}
+                                    style={{ height: '10rem' }}
                                     className="form-control" placeholder="What are the best times to contact you?" name="bestTime" value={formData.moreDetails} />
                                 <label className="form-label text-wrap">When would you like to have your consultation? I can accommodate standard business hours as well as evenings and weekends.</label>
                             </div>
@@ -258,7 +258,7 @@ function Consultation(props) {
                                 <div className="form-check my-2">
                                     <input className="form-check-input" onChange={handleFormChange} type="radio" name="urgency" value="option1" />
                                     <label className="form-check-label">
-                                        I'm definitely seeking to move forward with an insurance policy or investment vehicle in the near future.
+                                        I'm definitely seeking to move forward with an insurance policy or other products in the near future.
                                     </label>
                                 </div>
                                 <div className="form-check my-2">

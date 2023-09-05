@@ -95,7 +95,7 @@ function Home() {
                         <h5 className="card-title card-header">Empowering Non-Profit Growth</h5>
                         <div className="card-text card-body">
                             <p>Collaborated with a local organization offering scholarships to high school graduates</p>
-                            <p>Provided guidance on investment practices that yielded exceptional results</p>
+                            <p>Provided guidance on asset management that yielded exceptional results</p>
                             <p>Witnessed the scholarship fund's remarkable doubling within a decade</p>
                         </div>
                     </div>
