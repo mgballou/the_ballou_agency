@@ -1,8 +1,28 @@
 import { motion } from "framer-motion"
 import { useState, useEffect } from 'react'
+import { getBlogs } from "../utilities/contentful-service"
 
 function Blog(props) {
     const [blogs, setBlogs] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
+
+    async function handleRequest(){
+
+        try {
+            const response = await getBlogs()
+            if (response.ok){
+                setBlogs(response)
+                setIsLoading(false)
+            } else {
+                throw new Error("Content failed to load, please try again later.")
+            }
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+
+    }
 
 
     return (
